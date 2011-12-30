@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# simple gitolite mirroring
+
+# flush STDIN coming from git, because gitolite's own post-receive.mirrorpush
+# script does the same thing
+[ -t 0 ] || cat >/dev/null
+
+[ -z "$GL_REPO" ] && die GL_REPO not set
+
+target=`git config --get gitolite.mirror.simple`
+[ -z "$target" ] && exit 0
+
+# Support a REPO variable for wildcard mirrors
+target=$(echo $target | sed -e "s/REPO/$GL_REPO/g")
+
+# Do the mirror push
+git push --mirror $target
+
