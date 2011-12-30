@@ -24,7 +24,7 @@ To make the above configuration work, you need to do the following:
     
         $GL_GITCONFIG_KEYS = "gitolite.mirror.*";
     
-   See the [Gitolite docs][Security] for more on the setting.
+    See the [Gitolite docs][Security] for more on the setting.
 
 2. Setup public SSH authentication from your Gitolite server to the mirror
    target. Don't forget to connect at least once to pass SSH host key
