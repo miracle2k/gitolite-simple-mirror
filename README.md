@@ -32,6 +32,7 @@ To make the above configuration work, you need to do the following:
    
 3. Copy the *post-receive* hook from this repository to
    *~/.gitolite/hooks/common*, see the [Gitolite docs][Hooks] for more.
+   Make sure the file is executable.
    
 4. Run *gl-setup* (as the user serving gitolite) once to have the hook
    installed in all repositories.
