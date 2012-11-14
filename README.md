@@ -2,9 +2,9 @@
 be tedious to use if you are just looking to mirror push some repositories to
 Github (*).
 
-Here is an alternative *post-receive* hook which doesn't bother with
-master/slave declarations, and just let's you define a target repository
-to mirror to like so:
+Here is an alternative *post-receive* hook that doesn't bother with
+master/slave declarations, and just lets you define a target repository
+to which to mirror like so:
 
     repo    foo-project
             RW+     =   me
@@ -38,9 +38,9 @@ To make the above configuration work, you need to do the following:
    installed in all repositories.
 
 
-(*) Or even impossible if the push target does not support the "host:repo"
-syntax of gitolite, it's mirroring support intended to primarily mirror
-between multiple gitolite instances.
+(*) Or even impossible if the push target does not support the
+"host:repo" syntax of gitolite; gitolite's mirroring support is
+primarily intended to mirror between multiple gitolite instances.
 
 
 [Gitolite]: http://sitaramc.github.com/gitolite/
