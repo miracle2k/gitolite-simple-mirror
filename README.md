@@ -22,7 +22,7 @@ To make the above configuration work, you need to do the following:
 
 1. Edit *~/.gitolite.rc* to allow the config keys, for example like so:
     
-        $GL_GITCONFIG_KEYS = "gitolite.mirror\..*";
+        $GL_GITCONFIG_KEYS = "gitolite\.mirror\..*";
     
     See the [Gitolite docs][Security] for more on the setting.
 
