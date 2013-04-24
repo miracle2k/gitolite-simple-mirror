@@ -3,12 +3,16 @@ be tedious to use if you are just looking to mirror push some repositories to
 Github (*).
 
 Here is an alternative *post-receive* hook that doesn't bother with
-master/slave declarations, and just lets you define a target repository
+master/slave declarations, and just lets you define one or more target repositories
 to which to mirror like so:
 
     repo    foo-project
             RW+     =   me
             config gitolite.mirror.simple   =   "git@github.com:miracle2k/foo-project.git"
+            
+    repo    bar-project
+            RW+     =   me
+            config gitolite.mirror.simple   =   "git@github.com:miracle2k/bar-project.git git@bitbucket.org:miracle2k/bar-project.git"
             
 It's also possible to mirror multiple repositories in one go:
 

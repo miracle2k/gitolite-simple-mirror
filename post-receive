@@ -8,13 +8,14 @@
 
 [ -z "$GL_REPO" ] && die GL_REPO not set
 
-target=`git config --get gitolite.mirror.simple`
-[ -z "$target" ] && exit 0
+targets=`git config --get gitolite.mirror.simple`
+[ -z "$targets" ] && exit 0
 
-# Support a REPO variable for wildcard mirrors
-gl_repo_escaped=$(echo $GL_REPO | sed 's/\//\\\//g')
-target=$(echo $target | sed -e "s/REPO/$gl_repo_escaped/g")
+for target in $targets; do
+	# Support a REPO variable for wildcard mirrors
+	gl_repo_escaped=$(echo $GL_REPO | sed 's/\//\\\//g')
+	target=$(echo $target | sed -e "s/REPO/$gl_repo_escaped/g")
 
-# Do the mirror push
-git push --mirror $target
-
+	# Do the mirror push
+	git push --mirror $target
+done
