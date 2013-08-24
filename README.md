@@ -22,13 +22,13 @@ It's also possible to mirror multiple repositories in one go:
 As you can see, REPO will be replaced by the repository name. This is done
 within the hook.
 
-You also have the ability to add custom options to the mirror push. In this
+Finally, you have the ability to add custom options to the mirror push. In this
 example, using ``--no-force`` allows you to use the Github web editing features
 without fear of accidentally overwriting such changes::
 
     repo    @public-projects
-            config gitolite.mirror.simple   =   "git@github.com:miracle2k/REPO.git"
-            config gitolite.mirror.extra-args   =   "--no-force"
+            config gitolite.mirror.simple             =   "git@github.com:miracle2k/REPO.git"
+            config gitolite.mirror.simple.extra-args  =   "--no-force"
 
 Setup
 -----
