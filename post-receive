@@ -11,11 +11,13 @@
 targets=`git config --get gitolite.mirror.simple`
 [ -z "$targets" ] && exit 0
 
+extra_args=`git config --get gitolite.mirror.simple.extra-args`
+
 for target in $targets; do
 	# Support a REPO variable for wildcard mirrors
 	gl_repo_escaped=$(echo $GL_REPO | sed 's/\//\\\//g')
 	target=$(echo $target | sed -e "s/REPO/$gl_repo_escaped/g")
 
 	# Do the mirror push
-	git push --mirror $target
+	git push --mirror $target $extra_args
 done
