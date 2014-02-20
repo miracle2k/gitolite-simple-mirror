@@ -30,8 +30,29 @@ without fear of accidentally overwriting such changes::
             config gitolite.mirror.simple             =   "git@github.com:miracle2k/REPO.git"
             config gitolite.mirror.simple.extra-args  =   "--no-force"
 
-Setup
------
+
+Setup (gitolite v3)
+---------------
+
+To make the above configurations work, you need to do the following:
+
+1. Edit *~/.gitolite.rc* to allow the config keys, for example like so:
+
+        GIT_CONFIG_KEYS => "gitolite\.mirror\..*"
+
+2. Setup public SSH authentication from your Gitolite server to the mirror
+   target. Don't forget to connect at least once to pass SSH host key
+   verification.
+
+3. Copy the *post-receive* hook from this repository to
+   *~/.gitolite/hooks/common*, or, preferably, to your own directory that
+  you have setup via *LOCAL_CODE*. see the [Gitolite docs](http://gitolite.com/gitolite/cust.htm) for more. Make sure the file is executable.
+
+4. Run *gitolite setup* (as the user serving gitolite) once to have the hook
+   installed in all repositories.
+
+Setup (gitolite v2)
+---------------
 
 To make the above configurations work, you need to do the following:
 
