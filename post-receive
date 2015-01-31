@@ -8,10 +8,10 @@
 
 [ -z "$GL_REPO" ] && die GL_REPO not set
 
-targets=`git config --get gitolite.mirror.simple`
+targets=$(git config --get gitolite.mirror.simple)
 [ -z "$targets" ] && exit 0
 
-extra_args=`git config --get gitolite.mirror.simple.extra-args`
+extra_args=$(git config --get gitolite.mirror.simple.extra-args)
 
 for target in $targets; do
 	# Support a REPO variable for wildcard mirrors
